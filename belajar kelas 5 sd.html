@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Android</title>
+
+<style>
+body{
+  background:black;
+  color:white;
+  font-family:Arial;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  flex-direction:column;
+  margin:0;
+  text-align:center;
+}
+
+#logo{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+#loading{
+  font-size:18px;
+}
+
+#bar{
+  width:220px;
+  height:8px;
+  background:#333;
+  margin-top:20px;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+#progress{
+  width:0%;
+  height:100%;
+  background:#4caf50;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="logo">Downloading Virus</div>
+<div id="loading">Download : 1 of 100</div>
+
+<div id="bar">
+<div id="progress"></div>
+</div>
+
+<script>
+
+let app = 1;
+let max = 100;
+let progress = 0;
+
+let interval = setInterval(()=>{
+
+progress++;
+
+document.getElementById("progress").style.width = progress + "%";
+
+if(app < max){
+app++;
+document.getElementById("loading").innerText =
+"Download " + app + " of " + max;
+}
+
+if(progress >= 100){
+
+clearInterval(interval);
+
+setTimeout(()=>{
+
+document.body.innerHTML =
+"<h1>Installing Virus</h1><p>Wait a Minute...</p>";
+
+setTimeout(()=>{
+
+document.body.innerHTML =
+"<h1>Warning!</h1>" +
+"<p>Your phone has been successfully hacked. The virus will hack the data on your phone. The virus will also install a trojan.</p>" +
+"<p>Virus Create by Lord Alpin...</p>";
+
+},3000);
+
+},1000);
+
+}
+
+},120);
+
+</script>
+
+</body>
+</html>
